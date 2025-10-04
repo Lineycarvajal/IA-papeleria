@@ -501,6 +501,40 @@ En la interfaz del chatbot verás el estado de las APIs configuradas:
 
 **Nota:** Sin APIs de IA, el chatbot solo responde comandos específicos del negocio.
 
+## 🚀 Despliegue en Streamlit Cloud
+
+### Pasos para Desplegar:
+
+1. **Ve a [Streamlit Cloud](https://share.streamlit.io/)** y conecta tu cuenta de GitHub
+
+2. **Despliega desde GitHub:**
+   - **Repositorio:** `Lineycarvajal/IA-papeleria` ⚠️ **(NO uses `lineycarvajal/repositorio`)**
+   - **Archivo principal:** `backend/streamlit_app.py`
+   - **Rama:** `master`
+
+3. **Configura las variables de entorno secretas:**
+   - Ve a "Manage app" → "Secrets"
+   - Agrega las siguientes variables (opcionales):
+   ```
+   OPENAI_API_KEY=tu_clave_openai
+   GROK_API_KEY=tu_clave_grok
+   ANTHROPIC_API_KEY=tu_clave_anthropic
+   AI_PROVIDER=openai
+   ```
+
+4. **¡Listo!** Tu aplicación estará disponible en una URL pública.
+
+### Solución de Errores Comunes:
+
+**Error: "ModuleNotFoundError: No module named 'openai'"**
+- ✅ **Solucionado:** Las importaciones ahora son opcionales
+- ✅ **Funciona sin APIs:** El chatbot responde con lógica local
+- ✅ **Mejor experiencia:** Con APIs configuradas, respuestas más inteligentes
+
+**Archivos de configuración creados:**
+- `requirements.txt`: Lista de dependencias para Streamlit Cloud
+- `packages.txt`: Paquetes del sistema (vacío, no se necesitan)
+
 ## 🚀 Próximos Pasos
 
 - [ ] Implementar frontend web completo

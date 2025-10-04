@@ -1,0 +1,30 @@
+# Core dependencies
+fastapi==0.118.0
+uvicorn[standard]==0.37.0
+streamlit==1.40.1
+
+# Database
+sqlalchemy==2.0.36
+pydantic==2.11.10
+
+# Data processing
+pandas==2.2.3
+scikit-learn==1.5.2
+numpy==1.26.4
+
+# HTTP requests
+requests==2.32.3
+
+# Environment variables
+python-dotenv==1.0.1
+
+# AI APIs (optional - will work without them)
+openai>=1.0.0
+anthropic>=0.40.0
+
+# Date/time handling
+python-dateutil==2.9.0.post0
+
+# Plotting (for Streamlit charts)
+plotly==5.24.1
+matplotlib==3.9.2

@@ -1,8 +1,22 @@
 import os
-import openai
 import requests
 from typing import Optional, Dict, Any
 from dotenv import load_dotenv
+
+# Importaciones opcionales de APIs de IA
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+    print("Advertencia: openai no está instalado. Las funciones de IA estarán limitadas.")
+
+try:
+    import anthropic
+    ANTHROPIC_AVAILABLE = True
+except ImportError:
+    ANTHROPIC_AVAILABLE = False
+    print("Advertencia: anthropic no está instalado. Claude no estará disponible.")
 
 # Cargar variables de entorno
 load_dotenv()
@@ -59,6 +73,9 @@ class AIAPIClient:
 
     def _ask_openai(self, question: str, context: str, max_tokens: int) -> Optional[str]:
         """Consulta a OpenAI GPT"""
+        if not OPENAI_AVAILABLE:
+            return "🤖 OpenAI no está disponible. Configura OPENAI_API_KEY para usar esta función."
+
         try:
             system_prompt = f"""Eres PapelBot, un asistente inteligente para la Papelería Inteligente Andes en Colombia.
 
@@ -130,6 +147,9 @@ Instrucciones:
 
     def _ask_anthropic(self, question: str, context: str, max_tokens: int) -> Optional[str]:
         """Consulta a Anthropic Claude"""
+        if not ANTHROPIC_AVAILABLE:
+            return "🤖 Claude (Anthropic) no está disponible. Configura ANTHROPIC_API_KEY para usar esta función."
+
         try:
             url = "https://api.anthropic.com/v1/messages"
             headers = {
