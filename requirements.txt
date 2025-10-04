@@ -1,11 +1,11 @@
 # Core dependencies
-fastapi==0.120.0
+fastapi==0.118.0
 uvicorn[standard]==0.40.0
 streamlit==1.41.0
 
 # Database
 sqlalchemy==2.0.36
-pydantic==2.7.0
+pydantic==2.11.10
 
 # Data processing
 pandas==2.2.3
@@ -19,8 +19,8 @@ requests==2.32.3
 python-dotenv==1.0.1
 
 # AI APIs (optional - will work without them)
-openai==1.15.0
-anthropic==0.4.12
+openai>=1.0.0
+anthropic>=0.40.0
 
 # Date/time handling
 python-dateutil==2.9.0.post0
