@@ -1,0 +1,1 @@
+from .database import Product, Sale, Customer, SchoolList, Order
